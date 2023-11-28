@@ -93,7 +93,7 @@ def eval_genomes(genomes, config):
             # Evaluation des réseaux
             iterations = 0
             dist_min = abs(pos_1 - pos_2)
-            while pos_1 != pos_2 and iterations <= iterations_max:
+            while pos_1 != pos_2 and iterations <= iterations_max:                 
 
                 out1 = nn1.activate([label1, etape, pos_1, derniereAction_1])
                 out2 = nn2.activate([label2, etape, pos_2, derniereAction_2])
@@ -117,9 +117,9 @@ def eval_genomes(genomes, config):
 
             # Mise à jour de la fitness
 
-            if iterations <= iterations_max:
+            if iterations <= iterations_max:             # cas 1: rencontre
                 genome.fitness -= iterations
-            else:
+            else:                                        # cas 2: echec
                 genome.fitness -= iterations_max * dist_min
 
 
